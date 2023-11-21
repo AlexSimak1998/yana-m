@@ -1,0 +1,125 @@
+<template>
+  <div class="navbar-top">
+    <div class="navbar">
+      <router-link to="/">
+        <h1>YANA.M</h1>
+      </router-link>
+
+      <div class="burger flex items-center cursor-pointer">
+        <svg width="30" height="11" viewBox="0 0 30 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line y1="0.5" x2="30" y2="0.5" stroke="#55524D" />
+          <line y1="5.5" x2="30" y2="5.5" stroke="#55524D" />
+          <line y1="10.5" x2="30" y2="10.5" stroke="#55524D" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-bottom">
+    <div class="navbar-b">
+      <h1 :class="{ 'display-none': windowWidth < 780}">ART</h1>
+      <div :class="{ 'display-none': windowWidth >= 780}">
+        <div class="flex items-center">
+        <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-1">
+          <path
+            d="M6.875 2.08331C4.236 2.08331 2.08334 4.23598 2.08334 6.87498V13.125C2.08334 15.7636 4.23592 17.9166 6.875 17.9166H13.125C15.7637 17.9166 17.9167 15.7637 17.9167 13.125V6.87498C17.9167 4.2359 15.7637 2.08331 13.125 2.08331H6.875ZM6.875 3.33331H13.125C15.088 3.33331 16.6667 4.91156 16.6667 6.87498V13.125C16.6667 15.0879 15.0879 16.6666 13.125 16.6666H6.875C4.91158 16.6666 3.33334 15.088 3.33334 13.125V6.87498C3.33334 4.91148 4.91151 3.33331 6.875 3.33331ZM14.1667 4.99998C13.7063 4.99998 13.3333 5.3729 13.3333 5.83331C13.3333 6.29373 13.7063 6.66665 14.1667 6.66665C14.6271 6.66665 15 6.29373 15 5.83331C15 5.3729 14.6271 4.99998 14.1667 4.99998ZM10 5.83331C7.70633 5.83331 5.83334 7.7063 5.83334 9.99998C5.83334 12.2937 7.70633 14.1666 10 14.1666C12.2937 14.1666 14.1667 12.2937 14.1667 9.99998C14.1667 7.7063 12.2937 5.83331 10 5.83331ZM10 7.08331C11.618 7.08331 12.9167 8.38199 12.9167 9.99998C12.9167 11.618 11.618 12.9166 10 12.9166C8.38201 12.9166 7.08334 11.618 7.08334 9.99998C7.08334 8.38199 8.38201 7.08331 10 7.08331Z"
+            fill="#55524D" />
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8 0C3.5816 0 0 3.5816 0 8C0 12.4184 3.5816 16 8 16C12.4184 16 16 12.4184 16 8C16 3.5816 12.4184 0 8 0ZM8 1.6C11.5344 1.6 14.4 4.4656 14.4 8C14.4 11.5344 11.5344 14.4 8 14.4C7.41151 14.4 6.8444 14.3144 6.30312 14.1656C6.47338 13.8226 6.6261 13.4612 6.70937 13.1406C6.80137 12.7886 7.17812 11.3531 7.17812 11.3531C7.42292 11.8203 8.1384 12.2172 8.9 12.2172C11.1664 12.2172 12.8 10.1326 12.8 7.54219C12.8 5.05819 10.7736 3.2 8.16563 3.2C4.92163 3.2 3.2 5.37724 3.2 7.74844C3.2 8.85084 3.7866 10.2233 4.725 10.6609C4.8674 10.7273 4.94376 10.6985 4.97656 10.5609C5.00216 10.4561 5.12914 9.94541 5.18594 9.70781C5.20434 9.63261 5.19597 9.56659 5.13438 9.49219C4.82398 9.11539 4.575 8.42373 4.575 7.77813C4.575 6.11973 5.83035 4.51562 7.96875 4.51562C9.81515 4.51562 11.1078 5.77424 11.1078 7.57344C11.1078 9.60624 10.0813 11.0141 8.74531 11.0141C8.00771 11.0141 7.45365 10.405 7.63125 9.65625C7.84325 8.76265 8.25469 7.79793 8.25469 7.15313C8.25469 6.57633 7.94629 6.09531 7.30469 6.09531C6.55029 6.09531 5.94375 6.87471 5.94375 7.92031C5.94375 8.58591 6.16875 9.03594 6.16875 9.03594C6.16875 9.03594 5.4243 12.1855 5.2875 12.7719C5.2197 13.0613 5.19707 13.4041 5.19531 13.7469C3.06862 12.7065 1.6 10.5269 1.6 8C1.6 4.4656 4.4656 1.6 8 1.6Z"
+            fill="#55524D" />
+        </svg>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  computed:{
+    windowWidth() {
+      return window.innerWidth;
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", this.updateWindowWidth);
+    this.updateWindowWidth();
+  },
+  methods: {
+    updateWindowWidth() {
+      this.$nextTick(() => {
+        console.log(this.windowWidth); // Ширина окна теперь обновляется динамически
+      });
+    },
+  }
+};
+</script>
+
+<style scoped>
+.display-none {
+  display: none;
+}
+
+.navbar-bottom {
+  margin: 0 auto;
+  padding: 0 30px;
+  background: #f1f1ef;
+  max-width: 1346px;
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-top {
+  margin: 0 auto;
+  padding: 0 30px;
+  background: #f1f1ef;
+  max-width: 1346px;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: #4b4b4b;
+  font-size: 24px;
+  border: solid 1px rgba(85, 82, 77, 1);
+  border-top: none;
+  background: #f1f1ef;
+}
+
+.navbar-b {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0 20px;
+  color: #4b4b4b;
+  font-size: 24px;
+  border: solid 1px rgba(85, 82, 77, 1);
+  border-bottom: none;
+}
+
+@media (max-width: 767px) {
+
+  .navbar-bottom,
+  .navbar-top {
+    width: 100%;
+  }
+  .navbar-b {
+  padding: 5px 10px;
+}
+.navbar{
+  padding: 0px 15px;
+}
+}
+</style>

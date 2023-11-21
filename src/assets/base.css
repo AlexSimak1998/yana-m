@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Zen Antique Soft', serif;
+}
+
+#app{
+    padding: 0 30px;
+    background: #f1f1ef;
+    max-width: 1346px;
+    margin: 0 auto;
+}
+
+
