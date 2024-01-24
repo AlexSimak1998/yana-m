@@ -1,35 +1,54 @@
 import { createStore } from 'vuex';
 
 export default createStore({
-    state:{
-        dateBackend:[],
-        currentCard:{}
+    state: {
+        dateBackend: [],
+        currentCard: {}
     },
-    actions:{ 
-      async  DateFromBackend(ctx){
-            const res = await fetch(
-                'https://back.miktadov.com/api/yana/productions/'
-            )
-            const dateBackend = await res.json()
-            this.dateBackend = dateBackend
-            ctx,this.commit('uppdateDateBackend',dateBackend)
-        }
+    actions: { 
+        async DateFromBackend(ctx) {
+            try {
+                const res = await fetch('https://back.miktadov.com/api/yana/productions/');
+                let dateBackend = await res.json();
 
-    },
-    mutations:{
-        uppdateDateBackend(state, dateBackend){
-            state.dateBackend = dateBackend
-        },
-        setCurrentCard(state,card){
-            state.currentCard = card
+                // Функция для обновления URL до https
+                const formatImageUrl = (url) => {
+                    if (!url) return '';
+                    if (url.startsWith('http://')) {
+                        return `https${url.substring(4)}`;
+                    }
+                    return url;
+                };
+
+                // Обновление URL в данных
+                dateBackend.results = dateBackend.results.map(item => ({
+                    ...item,
+                    images: item.images.map(image => ({
+                        ...image,
+                        image: formatImageUrl(image.image)
+                    }))
+                }));
+
+                ctx.commit('updateDateBackend', dateBackend);
+            } catch (error) {
+                console.error("Ошибка при получении данных с бэкенда:", error);
+            }
         }
     },
-    getters:{
-        DateBackend(state){
-            return state.dateBackend
+    mutations: {
+        updateDateBackend(state, dateBackend) {
+            state.dateBackend = dateBackend;
         },
-        getCurrentCard(){
-            return state.currentCard
+        setCurrentCard(state, card) {
+            state.currentCard = card;
         }
     },
-})
+    getters: {
+        DateBackend(state) {
+            return state.dateBackend;
+        },
+        getCurrentCard(state) {
+            return state.currentCard;
+        }
+    },
+});

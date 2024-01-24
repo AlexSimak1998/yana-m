@@ -1,10 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Main from '../pages/MainPAges.vue'
 import Abaut from '../pages/AbautPAges.vue'
 import CardPages from '../pages/CardPages.vue'
-
-
-
 
 const routes = [
   {
@@ -13,7 +10,7 @@ const routes = [
     component: Main
   },
   {
-    path: '/CardPages/:id/:title/:price/:material/:size/:color/:images',
+    path: '/CardPages',
     name: 'CardPages',
     component: CardPages,
     props: true,
@@ -26,13 +23,11 @@ const routes = [
     path: '/Abaut',
     name: 'Abaut',
     component: Abaut
-
   }
 ]
 
-
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(), // Используем createWebHashHistory()
   routes,
 });
 

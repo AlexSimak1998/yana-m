@@ -1,30 +1,27 @@
 <template>
+    <div class="navbar-top">
+    <div class="navbar">
+      <router-link to="/">
+        <h1>YANA.M</h1>
+      </router-link>
 
+      <div class="burger flex items-center cursor-pointer">
+        <svg width="30" height="11" viewBox="0 0 30 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line y1="0.5" x2="30" y2="0.5" stroke="#55524D" />
+          <line y1="5.5" x2="30" y2="5.5" stroke="#55524D" />
+          <line y1="10.5" x2="30" y2="10.5" stroke="#55524D" />
+        </svg>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    windowWidth() {
-      return window.innerWidth;
-    },
-  },
-  mounted() {
-    window.addEventListener("resize", this.updateWindowWidth);
-    this.updateWindowWidth();
-  },
-  methods: {
-    updateWindowWidth() {
-      this.$nextTick(() => {
-        console.log(this.windowWidth);
-      });
-    },
-    insta() {
-      window.location.href = 'https://www.figma.com/file/wLXPYuSqGBN1oGasLvncOe/YANA.M?node-id=1%3A59&mode=dev'
-    }
-  }
-};
+
+}
 </script>
+
 
 <style scoped>
 .display-none {
@@ -34,6 +31,7 @@ export default {
 .navbar-bottom {
   margin: 0 auto;
   background: #f1f1ef;
+  z-index: 999;
 }
 
 .navbar-top {

@@ -8,10 +8,6 @@ body{
 }
 
 #app{
-    padding: 0 30px;
     background: #f1f1ef;
-    max-width: 1346px;
     margin: 0 auto;
 }
-
-

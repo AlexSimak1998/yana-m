@@ -1,33 +1,36 @@
 <template>
   <div class="app">
-    <Navbar />
+    <NavbarHeader />
     <router-view></router-view>
+    <NavbarFooter />
   </div>
 </template>
 
 <script>
-import Navbar from "./navbar/Navbar.vue";
+import NavbarHeader from "./navbar/NavbarHeader.vue";
+import NavbarFooter from "./navbar/NavbarFooter.vue";
 export default {
-  components: { Navbar },
+  components: { NavbarHeader,
+    NavbarFooter
+  
+  },
 };
 </script>
 
 <style>
 .app {
-  max-width: 1346px;
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  margin: 0 40px;
   border-left: solid 1px rgba(85, 82, 77, 1);
   border-right: solid 1px rgba(85, 82, 77, 1);
   background: #f1f1ef;
-  min-height: 100vh;
+
 }
 
 @media (max-width: 767px) {
   .app {
-    padding: 15px;
+    margin: 0 30px;
+    padding: 0px;
+
   }
 }
 </style>

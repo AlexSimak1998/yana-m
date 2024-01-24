@@ -2,81 +2,40 @@
   <section class="slider">
     <div class="slider__flex">
       <div class="slider__col">
-        <div class="slider__prev" @click="slidePrev">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <rect
-              x="24"
-              y="24"
-              width="24"
-              height="24"
-              transform="rotate(-180 24 24)"
-              fill="url(#pattern0)"
-            />
+        <div class="slider__prev" @click="slidePrev" v-if="images.length >= 5">
+          <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect x="24" y="24" width="24" height="24" transform="rotate(-180 24 24)" fill="url(#pattern0)" />
             <defs>
-              <pattern
-                id="pattern0"
-                patternContentUnits="objectBoundingBox"
-                width="1"
-                height="1"
-              >
+              <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
                 <use xlink:href="#image0_115_5" transform="scale(0.0416667)" />
               </pattern>
-              <image
-                id="image0_115_5"
-                width="24"
-                height="24"
-                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQklEQVR4nGNgGAWjYBQMCChnYGD4Tyaup6Ul9bT0ST3J4USCJfXkGk6MJfWUGo7PEqoZjs0SqhsOAw1QPApGwXACABD8P4Or4XXCAAAAAElFTkSuQmCC"
-              />
+              <image id="image0_115_5" width="24" height="24"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQklEQVR4nGNgGAWjYBQMCChnYGD4Tyaup6Ul9bT0ST3J4USCJfXkGk6MJfWUGo7PEqoZjs0SqhsOAw1QPApGwXACABD8P4Or4XXCAAAAAElFTkSuQmCC" />
             </defs>
           </svg>
         </div>
         <div class="slider__thumbs">
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div
-                class="swiper-slide"
-                v-for="(img, index) in images"
-                :key="index"
-              >
-                <div class="slider__image">
+              <div class="swiper-slide" v-for="(img, index) in images" :key="index">
+                <div class="slider__image imgCol">
                   <img :src="img.image" alt="" @click="selectImage(index)" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="slider__next" @click="slideNext">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
+        <div class="slider__next" @click="slideNext" v-if="images.length >= 5">
+          <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="24" height="24" fill="url(#pattern0)" />
             <defs>
-              <pattern
-                id="pattern0"
-                patternContentUnits="objectBoundingBox"
-                width="1"
-                height="1"
-              >
+              <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
                 <use xlink:href="#image0_115_2" transform="scale(0.0416667)" />
               </pattern>
-              <image
-                id="image0_115_2"
-                width="24"
-                height="24"
-                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQklEQVR4nGNgGAWjYBQMCChnYGD4Tyaup6Ul9bT0ST3J4USCJfXkGk6MJfWUGo7PEqoZjs0SqhsOAw1QPApGwXACABD8P4Or4XXCAAAAAElFTkSuQmCC"
-              />
+              <image id="image0_115_2" width="24" height="24"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQklEQVR4nGNgGAWjYBQMCChnYGD4Tyaup6Ul9bT0ST3J4USCJfXkGk6MJfWUGo7PEqoZjs0SqhsOAw1QPApGwXACABD8P4Or4XXCAAAAAElFTkSuQmCC" />
             </defs>
           </svg>
         </div>
@@ -84,11 +43,7 @@
       <div class="slider__images">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div
-              class="swiper-slide"
-              v-for="(img, index) in images"
-              :key="index"
-            >
+            <div class="swiper-slide" v-for="(img, index) in images" :key="index">
               <div class="slider__image">
                 <img :src="img.image" alt="" />
               </div>
@@ -103,9 +58,9 @@
 <script>
 import Swiper from "swiper";
 export default {
-    props:{
-        images:Array
-    },
+  props: {
+    images: Array
+  },
   data() {
     return {
       sliderThumbs: null,
@@ -124,11 +79,11 @@ export default {
     },
   },
   async mounted() {
-    console.log(this.images);
+    console.log(this.images.length);
     this.sliderThumbs = new Swiper(".slider__thumbs .swiper-container", {
       direction: "vertical",
-      slidesPerView: 4,
-      spaceBetween: 24,
+      slidesPerView: 3,
+      spaceBetween: 40,
 
       navigation: {
         nextEl: ".slider__next",
@@ -175,27 +130,38 @@ export default {
 .slider__thumbs[data-v-866156b9] {
   height: 427px;
 }
-.slider {
-  color: #fff;
 
+.slider {
+  height: 100%;
 }
+
 .slider .swiper-container {
   overflow: hidden;
+  max-width: 100%;
   width: 100%;
   height: 100%;
 }
+
 .slider__flex {
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: 100%;
 }
+
 .slider__col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  margin-right: 32px;
+  margin-right: 40px;
+  max-width: 168px;
 }
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+
+}
+
 .slider__prev,
 .slider__next {
   cursor: pointer;
@@ -210,51 +176,61 @@ export default {
   z-index: 6px;
   margin: 10px;
 }
+
 .slider__prev:focus,
 .slider__next:focus {
   outline: none;
 }
+
 .slider__thumbs {
-  height: calc(400px - 96px);
+  height: 588px;
 }
+
 .slider__thumbs .slider__image {
   transition: 0.25s;
   -webkit-filter: grayscale(100%);
   filter: none;
   opacity: 0.5;
 }
+
 .slider__thumbs .slider__image:hover {
   opacity: 1;
   cursor: pointer;
 }
+
 .slider__thumbs .swiper-slide-thumb-active .slider__image {
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
   opacity: 1;
 }
+
 .slider__images {
-  height: 528px;
-  width: 422px;
+  flex-grow: 1;
+  height: 80vh;
 }
+
 .slider__images .slider__image img {
   transition: 3s;
   border-radius: 0px;
 }
-.slider__images .slider__image:hover img {
-  transform: scale(1.1);
-}
+
 .slider__image {
   width: 100%;
   height: 100%;
   border-radius: 0px;
   overflow: hidden;
 }
+
 .slider__image img {
   display: block;
-  width: 100%;
-  height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+
 }
 
+.imgCol {
+  flex-grow: 1;
+  height: 168px;
+  width: 168px;
+}
 </style>
