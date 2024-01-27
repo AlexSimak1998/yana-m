@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Main from '../pages/MainPAges.vue'
 import Abaut from '../pages/AbautPAges.vue'
 import CardPages from '../pages/CardPages.vue'
-
+import FormPages from "../pages/FormPages.vue"
 const routes = [
   {
     path: '/',
@@ -23,11 +23,16 @@ const routes = [
     path: '/Abaut',
     name: 'Abaut',
     component: Abaut
-  }
+  },
+  {
+    path: '/FormPages/:title',
+    name: 'FormPages',
+    component: FormPages
+  },
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(), // Используем createWebHashHistory()
+  history: createWebHashHistory(), 
   routes,
 });
 

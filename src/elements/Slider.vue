@@ -103,7 +103,7 @@ export default {
     this.sliderImages = new Swiper(".slider__images .swiper-container", {
       direction: "vertical",
       slidesPerView: 1,
-      spaceBetween: 32,
+      spaceBetween: 40,
       mousewheel: true,
       navigation: {
         nextEl: ".slider__next",
@@ -127,12 +127,13 @@ export default {
 </script>
 
 <style>
-.slider__thumbs[data-v-866156b9] {
-  height: 427px;
-}
 
 .slider {
-  height: 100%;
+  height: calc(100vh - 80px);
+  position: fixed;
+  top: 40px;
+  left: 80px;
+  width: calc(50% - 120px);
 }
 
 .slider .swiper-container {
@@ -152,8 +153,10 @@ export default {
 .slider__col {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-right: 40px;
   max-width: 168px;
+  height: 78.3vh;
 }
 
 .swiper-slide img {
@@ -174,7 +177,7 @@ export default {
   -ms-user-select: none;
   user-select: none;
   z-index: 6px;
-  margin: 10px;
+  margin: 3.3vh;
 }
 
 .slider__prev:focus,
@@ -183,7 +186,7 @@ export default {
 }
 
 .slider__thumbs {
-  height: 588px;
+  height: 61.8vh;
 }
 
 .slider__thumbs .slider__image {
@@ -206,7 +209,7 @@ export default {
 
 .slider__images {
   flex-grow: 1;
-  height: 80vh;
+  height: calc(100% - 80px);
 }
 
 .slider__images .slider__image img {
@@ -230,7 +233,7 @@ export default {
 
 .imgCol {
   flex-grow: 1;
-  height: 168px;
-  width: 168px;
+  height: 17.6vh;
+  width: 17.6vh;
 }
 </style>
